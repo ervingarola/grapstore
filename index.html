@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Mejorado para web -->
+  <title>Grape Store - Joyería Exclusiva Nicaragua | Anillos, Brazaletes, Cadenas</title>
+  <meta name="description" content="Descubre la joyería más exclusiva de Nicaragua en Grape Store. Anillos, brazaletes, cadenas, charms y aretes únicos. ¡Envíos a todo el país!">
+  <meta name="keywords" content="joyería Nicaragua, anillos, brazaletes, cadenas, charms, aretes, Grape Store, joyería exclusiva">
+  <meta name="author" content="Grape Store">
+  
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:title" content="Grape Store - Joyería Exclusiva Nicaragua">
+  <meta property="og:description" content="Descubre nuestra colección exclusiva de joyería artesanal">
+  <meta property="og:image" content="img/logo_grapstore.jpg">
+  <meta property="og:url" content="https://tudominio.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="img/logo_grapstore.jpg">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  
+  <style>
+    /* Estilos adicionales para el fondo - MODIFICADO */
+    body {
+      background: 
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+        url('https://drive.google.com/uc?export=view&id=1TU5-VN1z0EeaCrwyGzmEJ6aUCkOSIo-R') center repeat;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .main-content-wrapper {
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 1200px;
+      margin: 0 auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
+      }
+      .main-content-wrapper {
+        margin: 0;
+      }
+    }
+  </style>
+  
+  <!-- Google Analytics (opcional) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
+</head>
+
+<body>
+  <!-- Contenedor principal para el fondo -->
+  <div class="main-content-wrapper">
+    <!-- Header -->
+    <header>
+      <div class="navbar">
+        <div class="logo-container">
+          <img src="img/logo_grapstore.jpg" alt="Logo de Grape Store" class="logo">
+          <h1><a href="#inicio">Grape Store</a></h1>
+        </div>
+        
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav id="menu">
+          <a href="#inicio" onclick="closeMenu()">Inicio</a>
+          <a href="#todo" onclick="closeMenu()">Todo</a>
+          <a href="#brazaletes" onclick="closeMenu()">Brazaletes</a>
+          <a href="#anillos" onclick="closeMenu()">Anillos</a>
+          <a href="#cadenas" onclick="closeMenu()">Cadenas</a>
+          <a href="#charms" onclick="closeMenu()">Charms</a>
+          <a href="#clip" onclick="closeMenu()">Clips</a>
+          <a href="#aretes" onclick="closeMenu()">Aretes</a>
+          <a href="#social" class="contact-btn" onclick="closeMenu()">Redes Sociales</a>
+        </nav>
+        
+        <!-- Modal del Carrito -->
+        <div id="cartModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>🛒 Tu Carrito</h2>
+            <div id="cartItems"></div>
+            <div class="cart-actions">
+              <button onclick="checkoutWhatsApp()" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+              </button>
+              <button onclick="closeCartModal()" class="btn-close">
+                Seguir Comprando
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="inicio" class="hero">
+        <div class="hero-content">
+          <h2>Bienvenido a <span class="brand-highlight">Grape Store</span></h2>
+          <p>Explora nuestra colección exclusiva de joyería artesanal. Cada pieza cuenta una historia única.</p>
+        </div>
+      </section>
+
+      <!-- Carrusel -->
+      <section class="carousel-section">
+        <div class="carousel-container">
+          <div class="carousel" id="carousel">
+            <div class="slide">
+              <img src="img/Anillo_ariel.jpg" alt="Anillo Ariel">
+              <div class="slide-overlay">
+                <h3>Anillo Ariel</h3>
+                <span class="badge">Nuevo</span>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="img/Anillo_blancanieves.jpg" alt="Anillo Blancanieves">
+              <div class="slide-overlay">
+                <h3>Anillo Blancanieves</h3>
+                <span class="badge">Nuevo</span>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="img/Anillo_corazon_rosado.jpg" alt="Anillo Corazón Rosado">
+              <div class="slide-overlay">
+                <h3>Anillo Corazón Rosado</h3>
+                <span class="badge">Nuevo</span>
+              </div>
+            </div>
+            <div class="slide">
+              <img src="img/Anillo_lazo_blanco.jpg" alt="Anillo Lazo Blanco">
+              <div class="slide-overlay">
+                <h3>Anillo Lazo Blanco</h3>
+                <span class="badge">Nuevo</span>
+              </div>
+            </div>
+          </div>
+          
+          <button class="carousel-btn prev" onclick="prevSlide()" aria-label="Imagen anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next" onclick="nextSlide()" aria-label="Siguiente imagen">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          
+          <!-- Indicadores -->
+          <div class="carousel-indicators" id="indicators"></div>
+        </div>
+      </section>
+
+      <!-- Secciones de Productos -->
+      <section id="todo" class="seccion-producto">
+        <div class="container">
+          <div class="section-header">
+            <h2>Todo</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="galeria">
+            <!-- Los productos se generan automáticamente con JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section id="brazaletes" class="seccion-producto">
+        <div class="container">
+          <div class="section-header">
+            <h2>Brazaletes</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="galeria">
+            <!-- Los productos se generan automáticamente con JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section id="anillos" class="seccion-producto">
+        <div class="container">
+          <div class="section-header">
+            <h2>Anillos</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="galeria">
+            <!-- Los productos se generan automáticamente con JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section id="cadenas" class="seccion-producto">
+        <div class="container">
+          <div class="section-header">
+            <h2>Cadenas</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="galeria">
+            <!-- Los productos se generan automáticamente con JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section id="charms" class="seccion-producto">
+        <div class="container">
+          <div class="section-header">
+            <h2>Charms</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="galeria">
+            <!-- Los productos se generan automáticamente con JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section id="clip" class="seccion-producto">
+        <div class="container">
+          <div class="section-header">
+            <h2>Clips</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="galeria">
+            <!-- Los productos se generan automáticamente con JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section id="aretes" class="seccion-producto">
+        <div class="container">
+          <div class="section-header">
+            <h2>Aretes</h2>
+            <div class="section-divider"></div>
+          </div>
+          <div class="galeria">
+            <!-- Los productos se generan automáticamente con JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Redes sociales -->
+      <section id="social" class="social">
+        <div class="container">
+          <div class="section-header">
+            <h2>Síguenos en Redes Sociales</h2>
+            <p>Mantente al día con nuestras últimas colecciones y ofertas exclusivas</p>
+          </div>
+          
+          <div class="redes-contacto">
+            <a href="https://wa.me/message/CLXFT5A2NSRPE1" target="_blank" rel="noopener" class="whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.facebook.com/share/1AXa4RRCdu/" target="_blank" rel="noopener" class="facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/grape.store.ni?igsh=bjg2OTV5MXB5bmxx" target="_blank" rel="noopener" class="instagram">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+          </div>
+
+          <!-- Dirección y Mapa -->
+          <div class="contact-address">
+            <p><i class="fas fa-map-marker-alt"></i> En el colectivo The room concept store plaza España de la rotonda el Güegüense 300 m al sur 20 vrs al oeste, Nicaragua</p>
+          
+            <div class="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.297436634614!2d-86.2927346!3d12.1261573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7155c9b6e4c7d1%3A0x4a8f8c8e8e8e8e8e!2sPlaza%20Espa%C3%B1a%2C%20Managua%2C%20Nicaragua!5e0!3m2!1ses!2sni!4v1697654321987!5m2!1ses!2sni"
+                class="map-iframe"
+                title="Ubicación de Grape Store en Plaza España, Managua, Nicaragua">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div> <!-- Cierre del main-content-wrapper -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-gem"></i>
+          <h3>Grape Store</h3>
+        </div>
+        <p>Joyería exclusiva que cuenta tu historia</p>
+        <div class="footer-divider"></div>
+        <p>&copy; 2025 Grape Store. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal para imágenes -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="/placeholder.svg" alt="">
+      <div id="modalCaption"></div>
+    </div>
+  </div>
+
+  <!-- Modal para detalles del producto -->
+  <div id="productModal" class="modal product-modal" onclick="closeProductModal()">
+    <div class="product-modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeProductModal()" aria-label="Cerrar modal" title="Cerrar">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="product-modal-body">
+        <div class="product-modal-image">
+          <img id="productModalImage" src="/placeholder.svg" alt="">
+        </div>
+        <div class="product-modal-info">
+          <h2 id="productModalTitle"></h2>
+          <div class="product-modal-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="product-modal-price" id="productModalPrice"></div>
+          <div class="product-modal-description" id="productModalDescription"></div>
+          
+          <div class="product-modal-options">
+            <div class="quantity-selector">
+              <label>Cantidad:</label>
+              <div class="quantity-controls">
+                <button onclick="changeQuantity(-1)">-</button>
+                <span id="quantity">1</span>
+                <button onclick="changeQuantity(1)">+</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-modal-actions">
+            <button class="btn btn-primary" onclick="addToCart()">
+              <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+            </button>
+            <button class="btn btn-secondary" onclick="contactWhatsApp()">
+              <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/product-generator.js"></script>
+  <script src="js/script.js"></script>
+  
+  <!-- Schema.org para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Grape Store",
+    "description": "Joyería exclusiva en Nicaragua",
+    "url": "https://tudominio.com",
+    "telephone": "+505-7894-0597",
+    "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "En el colectivo The room concept store plaza España de la rotonda el Güegüense 300 m al sur 20 vrs al oeste",
+    "addressCountry": "NI"
+    }
+  }
+  </script>
+</body>
+</html>

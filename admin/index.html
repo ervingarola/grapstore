@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Grape Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>🍇 Panel de Administración</h1>
+            <p>Gestiona tus productos fácilmente</p>
+        </div>
+        
+        <div class="admin-content">
+            <!-- Formulario para agregar productos -->
+            <div class="form-section">
+                <h2>➕ Agregar Nuevo Producto</h2>
+                
+                <div id="successMessage" class="success-message">
+                    ✅ ¡Producto agregado exitosamente!
+                </div>
+                
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="category">📂 Categoría:</label>
+                        <select id="category" name="category" title="Selecciona la categoría del producto" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="anillos">Anillos</option>
+                            <option value="brazaletes">Brazaletes</option>
+                            <option value="cadenas">Cadenas</option>
+                            <option value="charms">Charms</option>
+                            <option value="clips">Clips</option>
+                            <option value="aretes">Aretes </option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productName">🏷️ Nombre del Producto:</label>
+                        <input type="text" id="productName" name="productName" placeholder="Ej: Anillo Elegante Dorado" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice">💰 Precio:</label>
+                        <input type="text" id="productPrice" name="productPrice" placeholder="Ej: C$1,500" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productDescription">📝 Descripción:</label>
+                        <textarea id="productDescription" name="productDescription" rows="3" placeholder="Describe tu producto..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productImage">📸 Foto del Producto:</label>
+                        <div class="file-upload" id="fileUpload">
+                            <p class="file-upload-text">📁 Arrastra tu foto aquí o haz clic para seleccionar</p>
+                            <p class="file-upload-subtext">
+                                Formatos: JPG, PNG | Tamaño máximo: 2MB
+                            </p>
+                            <input type="file" id="productImage" name="productImage" accept="image/*" class="hidden-input">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        ✨ Agregar Producto
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Vista previa -->
+            <div class="preview-section">
+                <h2>👀 Vista Previa</h2>
+                <div class="product-preview" id="productPreview">
+                    <img id="previewImage" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3Lm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNFNUY1Ii8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTAwNkU2IiBmb250LXNpemU9IjE2Ij5TaW4gSW1hZ2VuPC90ZXh0Pgo8L3N2Zz4K" alt="Vista previa del producto">
+                    <div class="product-info">
+                        <h3 id="previewName">Nombre del Producto</h3>
+                        <p id="previewPrice">Precio</p>
+                        <p id="previewDescription">Descripción del producto...</p>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-success" onclick="generateCode()">
+                    📋 Generar Código para Copiar
+                </button>
+            </div>
+        </div>
+        
+        <!-- Lista de productos existentes -->
+        <div class="products-list">
+            <h2>📦 Productos Actuales</h2>
+            <div id="productsList">
+                <!-- Los productos se cargarán aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
