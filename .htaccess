@@ -1,19 +1,70 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Forzar HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-  
-  # Compresión
-  <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/css application/javascript
-  </IfModule>
-  
-  # Caché
-  <IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-  </IfModule>
+
+  # Proteger carpetas y archivos del sistema
+  RewriteRule ^(\.env|composer\.json|composer\.lock|package\.json|package-lock\.json|yarn\.lock|config\.php|\.git) - [F,L]
+
+  # Bloqueo de bots y accesos maliciosos básicos
+  RewriteCond %{QUERY_STRING} (\.\.\/|\<|\>|union|select|insert|drop|cmd|exec|\/etc\/passwd) [NC]
+  RewriteRule .* - [F]
 </IfModule>
+
+# =======================
+# COMPRESIÓN GZIP
+# =======================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css
+  AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# =======================
+# CACHE DEL NAVEGADOR
+# =======================
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Imágenes
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+
+  # CSS y JS
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # Archivos de fuentes
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# =======================
+# BLOQUEAR HOTLINKING
+# (Evita que otros usen tus imágenes desde su web)
+# =======================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^https?://(www\.)?%{HTTP_HOST} [NC]
+  RewriteRule \.(jpg|jpeg|png|gif|webp|svg)$ - [F]
+</IfModule>
+
+# =======================
+# SEGURIDAD EXTRA
+# =======================
+# Evitar listar archivos si no hay index
+Options -Indexes
+
+# Desactivar ejecución PHP en uploads (si existe carpeta uploads)
+<Directory "/uploads">
+  php_admin_flag engine off
+</Directory>
